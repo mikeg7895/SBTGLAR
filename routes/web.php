@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('Layouts.layout');
+})->name('inicio');
+
+Route::get('/Iniciar-sesion', function () {
+    return view('login.login');
+})->name('login');
+
+Route::get('/Registrarse', function () {
+    return view('login.register');
+})->name('registrar');
