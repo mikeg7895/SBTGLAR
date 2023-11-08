@@ -2769,7 +2769,7 @@ textarea.form-control-lg {
 }
 
 .bg-login-image{
-  background: url('/static/assets/img/portfolio/6.jpeg');
+  background: url('../assets/img/portfolio/6.jpeg');
   background-position: center;
   background-size: cover;
 }

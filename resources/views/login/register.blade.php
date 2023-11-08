@@ -7,7 +7,7 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image" style="background: url('/public/assets/img/portfolio/3.jpeg'); background-position: center; background-size: cover;"></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image" style="background: url('/assets/img/portfolio/3.jpeg'); background-position: center; background-size: cover;"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
@@ -16,21 +16,21 @@
                             <form class="user" method="post">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        {{form.nombre}}
+                                        <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre completo">
                                     </div>
                                     <div class="col-sm-6">
-                                        {{form.nick}}
+                                        <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre de usuario">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    {{form.email}}
+                                    <input type="email" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Correo electronico" style="margin-top: 25px; margin-bottom: 25px;">       
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        {{form.password}}
+                                        <input type="password" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Contraseña">
                                     </div>
                                     <div class="col-sm-6">
-                                        {{form.confirm_password}}
+                                        <input type="password" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Confirmar contraseña">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-top: 25px;">Registrate</button>

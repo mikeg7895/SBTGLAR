@@ -24,7 +24,7 @@
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingresa tu correo electronico">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña">
+                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña" style="margin-top: 15px">
                                 </div>
                                 <input class="btn btn-primary btn-user btn-block" type="submit" value="Iniciar sesion" style="margin-top: 25px;">
                                 <hr>
