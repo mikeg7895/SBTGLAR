@@ -41,7 +41,7 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="{% url 'applications.blog:login' %}">¿Ya tienes una cuenta?</a>
+                                <a class="small" href="{{ route('login') }}">¿Ya tienes una cuenta?</a>
                             </div>
                         </div>
                     </div>

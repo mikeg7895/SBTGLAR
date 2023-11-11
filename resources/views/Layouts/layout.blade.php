@@ -26,11 +26,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#page-top">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#portfolio">Servicios</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">Sobre nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="#team">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#page-top">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#portfolio">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#about">Sobre nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#contact">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link @yield('active')" href="{{ route('blog') }}">Blog</a></li>
             <li class="nav-item d-flex justify-content-end">
               <a class="btn btn-dark btn-social mx-2" href="{{ route('login') }}" aria-label="login"><i class="fas fa-user"></i></a>
               <a class="btn btn-dark btn-social mx-2" aria-label="buscar" onclick="toggleBusqueda()"><i class="fas fa-search"></i></a>
@@ -40,10 +40,7 @@
         </div>
       </div>
     </nav>
-    @include('pags.index')
-    @include('pags.services')
-    @include('pags.about')
-    @include('pags.contact')
+    @yield('content')
     <footer class="footer py-4">
       <div class="container">
         <div class="row align-items-center">

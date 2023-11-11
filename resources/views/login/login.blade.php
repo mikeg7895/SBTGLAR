@@ -34,7 +34,7 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">¿Olvidaste tu contraseña?</a>
+                                <a class="small" href="{{ route('olvido') }}">¿Olvidaste tu contraseña?</a>
                             </div>
                             <div class="text-center">
                                 <a class="small" href="{{ route('registrar') }}">Crea una cuenta</a>

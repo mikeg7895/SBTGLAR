@@ -1,21 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InicioController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('Layouts.layout');
-})->name('inicio');
+Route::get('/', [InicioController::class, 'index'])->name('inicio');
+
+Route::post('/formulario' , [InicioController::class,'validar'])->name('validar');
+
+Route::get('/blog', function () {
+    return view('pags.blog');
+})->name('blog');
 
 Route::get('/Iniciar-sesion', function () {
     return view('login.login');
@@ -24,3 +19,7 @@ Route::get('/Iniciar-sesion', function () {
 Route::get('/Registrarse', function () {
     return view('login.register');
 })->name('registrar');
+
+Route::get('/Olvido-contraseña', function () {
+    return view('login.forgot');
+})->name('olvido');
