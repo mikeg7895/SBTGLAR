@@ -8,6 +8,7 @@
         <div class="col-lg-4 col-sm-6 mb-4">
           <!-- Portfolio item 1-->
           @component('_components.service')
+            @slot('portafolio', '#portfolioModal1')
             @slot('imagen', asset('assets/img/portfolio/1.jpeg'))
             @slot('titulo', 'Maquillaje social')
             @slot('subtitulo', 'Belleza')
@@ -16,6 +17,7 @@
         <div class="col-lg-4 col-sm-6 mb-4">
           <!-- Portfolio item 2-->
           @component('_components.service')
+          @slot('portafolio', '#portfolioModal2')
             @slot('imagen', asset('assets/img/portfolio/2.jpeg'))
             @slot('titulo', 'Peinados de gala')
             @slot('subtitulo', 'Estilo')
@@ -24,6 +26,7 @@
         <div class="col-lg-4 col-sm-6 mb-4">
           <!-- Portfolio item 3-->
           @component('_components.service')
+          @slot('portafolio', '#portfolioModal3')
             @slot('imagen', asset('assets/img/portfolio/3.jpeg'))
             @slot('titulo', 'Peinados infantiles')
             @slot('subtitulo', 'Infantil')
@@ -32,6 +35,7 @@
         <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
           <!-- Portfolio item 4-->
           @component('_components.service')
+          @slot('portafolio', '#portfolioModal4')
             @slot('imagen', asset('assets/img/portfolio/4.jpeg'))
             @slot('titulo', 'Manicure y pedicure')
             @slot('subtitulo', 'Consejos y ciudados')
@@ -40,6 +44,7 @@
         <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
           <!-- Portfolio item 5-->
           @component('_components.service')
+          @slot('portafolio', '#portfolioModal5')
             @slot('imagen', asset('assets/img/portfolio/5.jpeg'))
             @slot('titulo', 'Alisados y keratinas')
             @slot('subtitulo', 'Cuidado del cabello')
@@ -48,6 +53,7 @@
         <div class="col-lg-4 col-sm-6">
           <!-- Portfolio item 6-->
           @component('_components.service')
+          @slot('portafolio', '#portfolioModal6')
             @slot('imagen', asset('assets/img/portfolio/6.jpeg'))
             @slot('titulo', 'Terapias capilares')
             @slot('subtitulo', 'Tratamientos')

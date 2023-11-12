@@ -29,7 +29,7 @@
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link" href="{{ route('inicio') }}">Volver a inicio</a></li>
                 <li class="nav-item d-flex justify-content-end">
-                  <a class="btn btn-dark btn-social mx-2" href="{{ route('login') }}" aria-label="login"><i class="fas fa-user"></i></a>
+                  <a class="btn btn-dark btn-social mx-2" href="{{ route('profile') }}" aria-label="login"><i class="fas fa-user"></i></a>
               </li>
             </ul>
         </div>

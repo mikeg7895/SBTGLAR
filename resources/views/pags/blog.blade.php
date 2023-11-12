@@ -13,6 +13,12 @@
 <main class="my-5">
     <div class="container">
       <!--Section: Content-->
+      @auth
+      <h4 class="mb-5"><strong>Bienvenido {{ auth()->user()->name }}</strong></h4>
+      @if(auth()->user()->name == 'Maykoll')
+        <button>Publicar</button>
+      @endif
+      @endauth
         <div class="row">
           <div class="col-lg-4 col-md-12 mb-4">
             <div class="card">

@@ -32,7 +32,7 @@
             <li class="nav-item"><a class="nav-link" href="/#contact">Contacto</a></li>
             <li class="nav-item"><a class="nav-link @yield('active')" href="{{ route('blog') }}">Blog</a></li>
             <li class="nav-item d-flex justify-content-end">
-              <a class="btn btn-dark btn-social mx-2" href="{{ route('login') }}" aria-label="login"><i class="fas fa-user"></i></a>
+              <a class="btn btn-dark btn-social mx-2" href="{{ route('profile') }}" aria-label="login"><i class="fas fa-user"></i></a>
               <a class="btn btn-dark btn-social mx-2" aria-label="buscar" onclick="toggleBusqueda()"><i class="fas fa-search"></i></a>
               <input type="text" id="campoBusqueda" class="form-control d-none" placeholder="Buscar">
           </li>

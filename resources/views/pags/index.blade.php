@@ -12,5 +12,6 @@
 @include('pags.services')
 @include('pags.about')
 @include('pags.contact')
+@include('pags.descripcionser')
 
 @endsection

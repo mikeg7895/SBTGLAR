@@ -18,13 +18,13 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4" style="color: black;">Bienvenido</h1>
                             </div>
-                            <form class="user" method="post">
-                            
+                            <form class="user" method="post" action="{{ route('validar.login') }}">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingresa tu correo electronico">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingresa tu correo electronico" name="email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña" style="margin-top: 15px">
+                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña" style="margin-top: 15px" name="password">
                                 </div>
                                 <input class="btn btn-primary btn-user btn-block" type="submit" value="Iniciar sesion" style="margin-top: 25px;">
                                 <hr>
