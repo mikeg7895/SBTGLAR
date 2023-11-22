@@ -15,27 +15,48 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
+    @livewireStyles
   </head>
   <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="#page-top"><img src="{{asset('imagenes/LOGO-CORPO-2023-SEPTIEMBRE.png')}}" alt="..."/></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars ms-1"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
+          <i class="fas fa-bars"></i>
         </button>
+        <div class="d-flex d-lg-none">
+          <button class="btn btn-dark btn-social mx-2" data-bs-toggle="collapse" data-bs-target="#campoBusqueda1" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"  >
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div class="text-center mx-auto">
+          <a class="navbar-brand" href="#page-top" style="margin-left: 18%"><img src="{{asset('imagenes/LOGO-CORPO-2023-SEPTIEMBRE.png')}}" alt="..."/></a>
+        </div>
+        <div class="d-flex d-lg-none">
+          <a class="btn btn-dark btn-social mx-2" href="{{ route('profile') }}" aria-label="login"><i class="fas fa-user"></i></a>
+          <a class="btn btn-dark btn-social mx-2" aria-label="tienda" href="#"><i class="fas fa-shopping-bag"></i></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="campoBusqueda1">
+          <ul  class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+            <li class="nav-item d-lg-none"><input type="text" id="campo" class="form-control" placeholder="Buscar"></li>
+          </ul>
+        </div>
+        
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
             <li class="nav-item"><a class="nav-link" href="/#page-top">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="/#portfolio">Servicios</a></li>
             <li class="nav-item"><a class="nav-link" href="/#about">Sobre nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="/#contact">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link @yield('active')" href="{{ route('blog') }}">Blog</a></li>
-            <li class="nav-item d-flex justify-content-end">
+            <li class="nav-item"><a class="nav-link @yield('active')" href="{{ route('blog', ['pag'=>1]) }}">Blog</a></li>
+            <li class="nav-item d-flex justify-content-end d-none d-lg-flex">
               <a class="btn btn-dark btn-social mx-2" href="{{ route('profile') }}" aria-label="login"><i class="fas fa-user"></i></a>
-              <a class="btn btn-dark btn-social mx-2" aria-label="buscar" onclick="toggleBusqueda()"><i class="fas fa-search"></i></a>
+              <a class="btn btn-dark btn-social mx-2" aria-label="tienda" href="#"><i class="fas fa-shopping-bag"></i></a>
+              <a class="btn btn-dark btn-social mx-2" onclick="toggleBusqueda()">
+                <i class="fas fa-search"></i>
+              </a>
               <input type="text" id="campoBusqueda" class="form-control d-none" placeholder="Buscar">
-          </li>
+            </li>
           </ul>
         </div>
       </div>
@@ -81,5 +102,6 @@
         }
       }
     </script>
+    @livewireScripts
   </body>
 </html>

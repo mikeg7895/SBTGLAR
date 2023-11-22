@@ -20,4 +20,6 @@ Route::get('/registrarse',[RegisterController::class, 'create'])->name('registra
 Route::post('/validar-registro', [RegisterController::class,'store'])->name('validar.registro');
 Route::view('/olvido-contraseña','login.forgot')->name('olvido');
 
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{pag}', [BlogController::class, 'index'])->name('blog');
+Route::get('/post/{id}', [BlogController::class,'post'])->name('post');
+Route::post('/publicar', [BlogController::class, 'store'])->name('publicar');
