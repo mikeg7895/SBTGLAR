@@ -11,10 +11,17 @@ class Tienda extends Component
     public $count = 0;
     public $productos;
     public $user;
+    public $isLogged = false;
+
+    public function mount(){
+        if(auth()->user()){
+            $this->user = User::find(auth()->user()->id);
+            $this->isLogged = true;
+        }
+    }
 
     public function render()
     {
-        $this->user = User::find(auth()->user()->id);
         if(auth()->user()){
             $user = auth()->user();
             $this->count = User::find($user->id)->productos()->wherePivot("pago", false)->count();
