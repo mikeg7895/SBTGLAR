@@ -83,9 +83,15 @@
                           </div>
                           </a>
                           <!-- Product actions-->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto" wire:click="store({{$producto->id}})">Añadir al carrito</a></div>
-                          </div>
+                          @if($producto->users->find($user->id))
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent" disabled>
+                              <div class="text-center"><button class="btn btn-outline-dark mt-auto" disabled>Producto en el carrito</button></div>
+                            </div>
+                          @else
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><button class="btn btn-outline-dark mt-auto" wire:click="store({{$producto->id}})">Añadir al carrito</button></div>
+                            </div>
+                          @endif
                       </div>
                   </div>
                 @empty

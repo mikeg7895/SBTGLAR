@@ -11,7 +11,7 @@
                             <div class="carousel-inner">
                               @forelse ($reseñas as $reseña)
                                 <div class="carousel-item active">
-                                  <img class="mx-auto rounded-circle" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="..." />
+                                  <img class="mx-auto" style="border: none" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="..." />
                                   <h4>{{ $reseña->user->name }}</h4>
                                   <p class="text-muted">{{ $reseña->reseña }}</p>
                                 </div>
