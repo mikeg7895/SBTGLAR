@@ -16,7 +16,7 @@
             <!-- Portfolio item 1-->
             @component('_components.service')
               @slot('portafolio', '#portfolioModal'.$servicio->id)
-              @slot('imagen', asset('assets/img/portfolio/'.$servicio->imagen))
+              @slot('imagen', asset('storage/images/'.$servicio->imagen))
               @slot('titulo', $servicio->titulo)
               @slot('subtitulo', $servicio->subtitulo)
             @endcomponent
