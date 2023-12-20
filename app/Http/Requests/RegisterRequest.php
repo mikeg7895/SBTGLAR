@@ -28,4 +28,19 @@ class RegisterRequest extends FormRequest
             'password_confirmation'=> 'required',
         ];
     }
+
+    public function messages(){
+        return [
+            'name.required' => 'Un nombre es requerido',
+            'name.min' => 'Minimo 4 caracteres',
+            'name.max' => 'Maximo 50 caracteres',
+            'email.required' => 'Un correo es requerido',
+            'email.email' => 'Correo tipo email',
+            'email.unique' => 'El correo ya esta registrado',
+            'password.required' => 'La contraseña es requerida',
+            'password.min' => 'Minimo 5 caracteres',
+            'password.confirmed' => 'La contraseña no coincide',
+            'password_confirmation' => 'La contraseña es requerida'
+        ];
+    }
 }

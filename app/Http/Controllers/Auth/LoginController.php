@@ -18,6 +18,6 @@ class LoginController extends Controller
             return redirect()->route("login")->with("error","Contraseña incorrecta");
         }
 
-        return redirect()->route("blog", ['pag'=>1]);
+        return redirect()->route("inicio");
     }
 }

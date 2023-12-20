@@ -18,17 +18,26 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4" style="color: black;">Bienvenido</h1>
                             </div>
+                            @if($message = Session::get('error') || $message = Session::get('message'))
+                                <h5 class="text-muted">{{$message}}</h5>
+                            @endif
                             <form class="user" method="post" action="{{ route('validar.login') }}">
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingresa tu correo electronico" name="email">
+                                    @error('email')
+                                        <h5 class="text-muted">{{ $message }}</h5>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña" style="margin-top: 15px" name="password">
+                                    @error('password')
+                                        <h5 class="text-muted">{{ $message }}</h5>
+                                    @enderror
                                 </div>
                                 <input class="btn btn-primary btn-user btn-block" type="submit" value="Iniciar sesion" style="margin-top: 25px;">
                                 <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <a href="/google-auth/redirect" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Ingresa con Google
                                 </a>
                             </form>

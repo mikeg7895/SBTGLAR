@@ -27,7 +27,7 @@
       @endif
       @endauth
         <div class="row">
-          @foreach ($publicaciones as $publicacion)
+          @forelse ($publicaciones as $publicacion)
             @component('_components.targetpost')
               @if($publicacion->imagen == null)
                 @slot('imagen', 'https://mdbootstrap.com/img/new/standard/nature/184.jpg')
@@ -38,10 +38,9 @@
               @slot('texto', $publicacion->subdescripcion)
               @slot('id', $publicacion->id)
             @endcomponent
-          @endforeach
-          @if(!$publicaciones)
-            <h1>No hay publicaciones</h1>
-          @endif
+          @empty
+          <h1>No hay publicaciones</h1>
+          @endforelse
         </div>
 
         <div class="row">
@@ -68,7 +67,7 @@
                                   <div class="form-group">
                                       <label for="content">Contenido</label>
                                       <textarea class="form-control" id="subcontent" name="subcontent" placeholder="Subcontenido"></textarea>
-                                      <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+                                      <textarea class="form-control" id="content" name="content" rows="10"></textarea>
                                   </div>
                                   <button type="submit" class="btn btn-primary">Publicar</button>
                               </form>
@@ -99,5 +98,11 @@
     </div>
   </main>
 
+  <script>
+    ClassicEditor.create( document.querySelector( '#content' ) )
+                  .catch( error => {
+                      console.error( error );
+                  } );
+  </script>
 
 @endsection

@@ -28,4 +28,19 @@ class ContactoRequest extends FormRequest
             'message' => 'required|max:255|min:5'
         ];
     }
+
+    public function messages(){
+        return [
+            'name.required' => 'El nombre es requerido',
+            'name.max' => 'El nombre tiene un maximo de 30 caracteres',
+            'name.min' => 'El nombre minimo de 4 caracteres',
+            'email.required' => 'El email es requerido',
+            'email.email' => 'Formato de correo',
+            'number.required' => 'El numero es requerido',
+            'number.max' => 'Maximo y minimo 10 caracteres',
+            'message.required' => 'El mensaje es requerido',
+            'message.max' => 'Maximo 255 caracteres',
+            'message.min' => 'Minimo 5 caracteres'
+        ];
+    }
 }

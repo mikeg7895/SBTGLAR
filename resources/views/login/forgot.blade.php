@@ -20,11 +20,12 @@
                                     <p class="mb-4" style="color: black">
                                         Solo ingresa tu correo y te enviaremos un link para recuperarla</p>
                                 </div>
-                                <form class="user">
+                                <form class="user" action="{{route('send')}}" method="POST">
+                                    @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Ingresa el correo electronico">
+                                            placeholder="Ingresa el correo electronico" name="email">
                                     </div>
                                     <a href="login.html" class="btn btn-primary btn-user btn-block" style="margin-top: 25px;">
                                         Recuperar contraseña

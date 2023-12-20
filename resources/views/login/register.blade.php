@@ -16,17 +16,29 @@
                             <form class="user" method="post" action="{{ route('validar.registro') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre de usuario" name="name">                                    
+                                    <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre de usuario" name="name">    
+                                    @error('name')
+                                        <h5 class="text-muted">{{ $message }}</h5>
+                                    @enderror                                
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Correo electronico" style="margin-top: 25px; margin-bottom: 25px;" name="email">       
+                                    <input type="email" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Correo electronico" style="margin-top: 25px; margin-bottom: 25px;" name="email">
+                                    @error('email')
+                                        <h5 class="text-muted">{{ $message }}</h5>
+                                    @enderror       
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Contraseña" name="password">
+                                        @error('password')
+                                        <h5 class="text-muted">{{ $message }}</h5>
+                                    @enderror
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Confirmar contraseña" name="password_confirmation">
+                                        @error('password_confirmation')
+                                        <h5 class="text-muted">{{ $message }}</h5>
+                                    @enderror
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-top: 25px;">Registrate</button>

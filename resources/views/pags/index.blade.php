@@ -11,6 +11,7 @@
 </header>
 @include('pags.services')
 @include('pags.about')
+@include('pags.reseñas')
 @include('pags.contact')
 @include('pags.descripcionser')
 

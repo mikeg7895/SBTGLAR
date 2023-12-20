@@ -16,21 +16,21 @@
                         <!-- Name input-->
                         <input class="form-control" id="name" type="text" placeholder="Tu nombre *" data-sb-validations="required" name="name">
                         @error('name')
-                        <h3 class="text-muted">{{ $message }}</h3>
+                        <h5 class="text-muted">{{ $message }}</h5>
                         @enderror
                     </div>
                     <div class="form-group">
                         <!-- Email address input-->
                         <input class="form-control" id="email" type="email" placeholder="Tu correo *" data-sb-validations="required,email" name="email">
                         @error('email')
-                        <h3 class="text-muted">{{ $message }}</h3>
+                        <h5 class="text-muted">{{ $message }}</h5>
                         @enderror
                     </div>
                     <div class="form-group mb-md-0">
                         <!-- Phone number input-->
                         <input class="form-control" id="phone" type="tel" placeholder="Tu telefono *" data-sb-validations="required" pattern="3[0-9]{9,9}" name="number">
                         @error('number')
-                        <h3 class="text-muted">{{ $message }}</h3>
+                        <h5 class="text-muted">{{ $message }}</h5>
                         @enderror
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <!-- Message input-->
                         <textarea class="form-control" id="message" placeholder="Tu mensaje *" data-sb-validations="required" name="message"></textarea>
                         @error('message')
-                        <h3 class="text-muted">{{ $message }}</h3>
+                        <h5 class="text-muted">{{ $message }}</h5>
                         @enderror
                     </div>
                 </div>

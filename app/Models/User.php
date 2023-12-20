@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'google_id',
     ];
 
     /**
@@ -53,5 +55,17 @@ class User extends Authenticatable
 
     public function commentsBlogs(){
         return $this->belongsToMany(Blog::class,'comment_blog_user', 'user_id', 'blog_id')->withPivot('comentario');
+    }
+
+    public function reseña(){
+        return $this->hasOne(Reseña::class);
+    }
+
+    public function productos(){
+        return $this->belongsToMany(Producto::class, "producto_user", 'user_id', 'producto_id')->withPivot('pago', 'cantidad');
+    }
+
+    public function servicos(){
+        return $this->hasMany(Servicio::class);
     }
 }

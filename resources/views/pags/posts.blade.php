@@ -29,12 +29,12 @@
                 </header>
                 <!-- Post content-->
                 <section class="mb-5">
-                    <p class="fs-5 mb-4">{{ $post->descripcion }}</p>
+                    <p class="fs-5 mb-4">{!! html_entity_decode($post->descripcion) !!}</p>
                 </section>
             </article>
             <!-- Comments section-->
 
-            <livewire:post :id='$post->id' />
+            <livewire:post :id="$post->id" />
             
         </div>
     </div>

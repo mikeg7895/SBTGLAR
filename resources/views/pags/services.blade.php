@@ -3,62 +3,78 @@
       <div class="text-center">
         <h2 class="section-heading text-uppercase">Servicios</h2>
         <h3 class="section-subheading text-muted">Amplia gama de servicios y diseños</h3>
+        <a class="btn btn-primary portfolio-link"  data-bs-toggle="modal" href="#agendar" style="margin-bottom: 10px">Agenda aqui</a>
+        @auth
+         @if(auth()->user()->name == 'Maykoll')
+         <a class="btn btn-primary portfolio-link"  data-bs-toggle="modal" href="#crear" style="margin-bottom: 10px">Agrega un nuevo servicio</a>
+         @endif   
+        @endauth
       </div>
       <div class="row">
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <!-- Portfolio item 1-->
-          @component('_components.service')
-            @slot('portafolio', '#portfolioModal1')
-            @slot('imagen', asset('assets/img/portfolio/1.jpeg'))
-            @slot('titulo', 'Maquillaje social')
-            @slot('subtitulo', 'Belleza')
-          @endcomponent
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <!-- Portfolio item 2-->
-          @component('_components.service')
-          @slot('portafolio', '#portfolioModal2')
-            @slot('imagen', asset('assets/img/portfolio/2.jpeg'))
-            @slot('titulo', 'Peinados de gala')
-            @slot('subtitulo', 'Estilo')
-          @endcomponent
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4">
-          <!-- Portfolio item 3-->
-          @component('_components.service')
-          @slot('portafolio', '#portfolioModal3')
-            @slot('imagen', asset('assets/img/portfolio/3.jpeg'))
-            @slot('titulo', 'Peinados infantiles')
-            @slot('subtitulo', 'Infantil')
-          @endcomponent
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-          <!-- Portfolio item 4-->
-          @component('_components.service')
-          @slot('portafolio', '#portfolioModal4')
-            @slot('imagen', asset('assets/img/portfolio/4.jpeg'))
-            @slot('titulo', 'Manicure y pedicure')
-            @slot('subtitulo', 'Consejos y ciudados')
-          @endcomponent
-        </div>
-        <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-          <!-- Portfolio item 5-->
-          @component('_components.service')
-          @slot('portafolio', '#portfolioModal5')
-            @slot('imagen', asset('assets/img/portfolio/5.jpeg'))
-            @slot('titulo', 'Alisados y keratinas')
-            @slot('subtitulo', 'Cuidado del cabello')
-          @endcomponent
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <!-- Portfolio item 6-->
-          @component('_components.service')
-          @slot('portafolio', '#portfolioModal6')
-            @slot('imagen', asset('assets/img/portfolio/6.jpeg'))
-            @slot('titulo', 'Terapias capilares')
-            @slot('subtitulo', 'Tratamientos')
-          @endcomponent
-        </div>
+        @forelse ($servicios as $servicio)
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <!-- Portfolio item 1-->
+            @component('_components.service')
+              @slot('portafolio', '#portfolioModal'.$servicio->id)
+              @slot('imagen', asset('assets/img/portfolio/'.$servicio->imagen))
+              @slot('titulo', $servicio->titulo)
+              @slot('subtitulo', $servicio->subtitulo)
+            @endcomponent
+          </div>
+        @empty
+            <p class="text-muted">No hay servicios</p>
+        @endforelse
       </div>
     </div>
 </section>
+
+<div class="portfolio-modal modal fade" id="agendar" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal"><img src="{{ asset('assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                      <div class="modal-body">
+                                           
+                     </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="crear" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="close-modal" data-bs-dismiss="modal"><img src="{{ asset('assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                      <div class="modal-body">
+                        <div class="container mt-5">
+                          <h4>Crear servicio</h4>
+                          <form id="editorForm" method="POST" action="#" enctype="multipart/form-data">
+                            @csrf
+                              <div class="form-group">
+                                  <input type="text" class="form-control" id="title" name="title" placeholder="Titulo" required>
+                                  <input type="text" class="form-control" name="subtitulo" placeholder="Subtitulo">
+                                  <input type="file" class="form-control" name="image" placeholder="Cargar imagen" style="margin-top: 3%"> 
+                              </div>
+                              <div class="form-group">
+                                  <label for="content">Descripcion</label>
+                                  <textarea class="form-control" id="content" name="content" rows="10"></textarea>
+                                  <input type="number" class="form-control" name="precio" placeholder="Precio">
+                              </div>
+                              <button type="submit" class="btn btn-primary">Publicar</button>
+                          </form>
+                        </div> 
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
