@@ -38,7 +38,7 @@
               <div class="row justify-content-center">
                   <div class="col-lg-8">
                       <div class="modal-body">
-                                           
+                          <livewire:book />                 
                      </div>
                   </div>
               </div>
@@ -78,6 +78,10 @@
           </div>
       </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <script>
     ClassicEditor.create( document.querySelector( '#content' ) )
                   .catch( error => {
