@@ -18,8 +18,14 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4" style="color: black;">Bienvenido</h1>
                             </div>
-                            @if($message = Session::get('error') || $message = Session::get('message'))
-                                <h5 class="text-muted">{{$message}}</h5>
+                            @if(session('error'))
+                                <h5 class="text-muted">{{ session('error') }}</h5>
+                            @endif
+                            @if(session('message'))
+                                <h5 class="text-muted">{{ session('message') }}</h5>
+                            @endif
+                            @if(session('login'))
+                                <h5 class="text-muted">{{ session('login') }}</h5>
                             @endif
                             <form class="user" method="post" action="{{ route('validar.login') }}">
                                 @csrf

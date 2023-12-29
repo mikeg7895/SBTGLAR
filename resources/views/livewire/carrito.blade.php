@@ -7,7 +7,7 @@
         <div class="untree_co-section before-footer-section" style="margin-top: 20px">
             <div class="container">
             <div class="row mb-5">
-                <form class="col-md-12" method="post">
+                
                 <div class="site-blocks-table">
                     <table class="table">
                     <thead>
@@ -30,19 +30,35 @@
                                     <h2 class="h5 text-black">{{$producto->name}}</h2>
                                 </td>
                                 <td>${{$producto->precio}}</td>
-                                <td>
-                                    <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                    <div class="input-group-prepend">
-                                        <button {{ $producto->pivot->cantidad == 0 ? 'disabled' : '' }} class="btn btn-outline-black decrease" type="button" wire:click="operar({{$producto->id}}, 0)">&minus;</button>
-                                    </div>
-                                    <input type="text" class="form-control text-center quantity-amount" value="{{$producto->pivot->cantidad}}" wire:keydown.enter.prevent='setCantidad($event.target.value, {{$producto->id}})' aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-black increase" type="button" wire:click="operar({{$producto->id}}, 1)">&plus;</button>
-                                    </div>
-                                    </div>
-            
-                                </td>
-                                <td>${{ $producto->precio * $producto->pivot->cantidad }}</td>
+                                @if(auth()->user())
+                                    <td>
+                                        <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                        <div class="input-group-prepend">
+                                            <button {{ $producto->pivot->cantidad == 0 ? 'disabled' : '' }} class="btn btn-outline-black decrease" type="button" wire:click="operar({{$producto->id}}, 0)">&minus;</button>
+                                        </div>
+                                        <input type="text" disabled class="form-control text-center quantity-amount" value="{{$producto->pivot->cantidad}}" wire:keydown.enter.prevent='setCantidad($event.target.value, {{$producto->id}})' aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-black increase" type="button" wire:click="operar({{$producto->id}}, 1)">&plus;</button>
+                                        </div>
+                                        </div>
+                
+                                    </td>
+                                    <td>${{ $producto->precio * $producto->pivot->cantidad }}</td>
+                                @else
+                                    <td>
+                                        <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                        <div class="input-group-prepend">
+                                            <button {{ $producto->cantidad == 0 ? 'disabled' : '' }} class="btn btn-outline-black decrease" type="button" wire:click="operar({{$producto->id}}, 0)">&minus;</button>
+                                        </div>
+                                        <input type="text" disabled class="form-control text-center quantity-amount" value="{{ $producto->cantidad }}" wire:keydown.enter='setCantidad($event.target.value, {{$producto->id}})' wire:change='setCantidad($event.target.value, {{$producto->id}})' aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-black increase" type="button" wire:click="operar({{$producto->id}}, 1)">&plus;</button>
+                                        </div>
+                                        </div>
+                
+                                    </td>
+                                    <td>${{ $producto->precio * $producto->cantidad }}</td>
+                                @endif
                                 <td><a wire:click="delete({{$producto->id}})" class="btn btn-black btn-sm">X</a></td>
                             </tr>
                         @empty
@@ -52,7 +68,7 @@
                     </tbody>
                     </table>
                 </div>
-                </form>
+                
             </div>
     
             <div class="row">
@@ -82,7 +98,7 @@
     
                     <div class="row">
                         <div class="col-md-12">
-                        <a class="btn btn-black btn-lg py-3 btn-block" href="{{route('checkout')}}">Comprar</a>
+                        <button class="btn btn-black btn-lg py-3 btn-block" {{ empty($productos) ? "disabled" : "" }} wire:click=redirectToCheckOut>Comprar</button>
                         </div>
                     </div>
                     </div>

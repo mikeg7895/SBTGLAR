@@ -12,6 +12,7 @@ class Tienda extends Component
     public $productos;
     public $user;
     public $isLogged = false;
+    public $session;
 
     public function mount(){
         if(auth()->user()){
@@ -25,21 +26,34 @@ class Tienda extends Component
         if(auth()->user()){
             $user = auth()->user();
             $this->count = User::find($user->id)->productos()->wherePivot("pago", false)->count();
+        }else{
+            $this->session = session()->get('carrito', []);
+            $this->count = count($this->session);
         }
         $this->productos = Producto::orderBy("created_at","desc")->get();
         return view('livewire.tienda');
     }
 
     public function store($id){
-        if(!auth()->user()){
-            return redirect()->route('login');
-        }
-
         $producto = Producto::find($id);
-        if(!$producto->users()->where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->where('pago', false)->exists()){
-            $producto->users()->attach(auth()->user(), ['cantidad' => 1, 'created_at' => now(), 'updated_at' => now()]);
-            $this->count++;
+        if(!auth()->user()){
+            $exist = false;
+            $cache = session()->get('carrito', []);
+            foreach($cache as $cach){
+                if($cach->name == $producto->name){
+                    $exist = true;
+                    break;
+                }
+            }
+            if(!$exist){
+                $producto->setAttribute('cantidad', 1);
+                $cache[] = $producto;
+                session()->put('carrito', $cache);
+            }
+        }else{
+            if(!$producto->users()->where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->where('pago', false)->exists()){
+                $producto->users()->attach(auth()->user(), ['cantidad' => 1, 'created_at' => now(), 'updated_at' => now()]);
+            }
         }
     }
-
 }

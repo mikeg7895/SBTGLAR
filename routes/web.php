@@ -51,6 +51,6 @@ Route::post('/publicar', [BlogController::class, 'store'])->name('publicar');
 
 Route::get('/tienda', [TiendaController::class,'index'])->name('shop');
 Route::post('/saveprod', [TiendaController::class,'store'])->name('save.prod');
-Route::get('/carrito', [TiendaController::class,'carrito'])->middleware('auth')->name('carrito');
+Route::get('/carrito', [TiendaController::class,'carrito'])->name('carrito');
 Route::get('/checkout', [TiendaController::class,'pagar'])->middleware('auth')->name('checkout');
 Route::get('/detalle/{id}', [TiendaController::class, 'detail'])->name('detail');

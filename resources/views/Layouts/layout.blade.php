@@ -34,7 +34,7 @@
         </div>
         <div class="d-flex d-lg-none">
           <a class="btn btn-dark btn-social mx-2" href="{{ route('profile') }}" aria-label="login"><i class="fas fa-user"></i></a>
-          <a class="btn btn-dark btn-social mx-2" aria-label="tienda" href="#"><i class="fas fa-shopping-bag"></i></a>
+          <a class="btn btn-dark btn-social mx-2" aria-label="tienda" href="{{ route('shop') }}"><i class="fas fa-shopping-bag"></i></a>
         </div>
 
         <div class="collapse navbar-collapse" id="campoBusqueda1">
