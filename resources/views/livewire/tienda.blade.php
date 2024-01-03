@@ -46,7 +46,7 @@
       
       <header class="masthead">
           <div class="container">
-          <div class="masthead-subheading">Bienvenidos a nuestr tienda</div>
+          <div class="masthead-subheading">Bienvenidos a nuestra tienda</div>
           <div class="masthead-heading text-uppercase">Es un placer tenerte aqui</div>
           </div>
       </header>
@@ -54,7 +54,7 @@
         <div class="container px-4 px-lg-5 mt-5">
                   @auth
                   <h4 class="mb-5"><strong>Bienvenido {{ auth()->user()->name }}</strong></h4>
-                  @if(auth()->user()->name == 'Maykoll')
+                  @if(auth()->user()->name == 'SBTG')
                   <!-- publicar -->
                   <div class="portfolio-item" style="margin-bottom: 3%">
                       <a class="portfolio-link" data-bs-toggle="modal" href="#publicar">

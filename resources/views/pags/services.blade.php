@@ -3,9 +3,9 @@
       <div class="text-center">
         <h2 class="section-heading text-uppercase">Servicios</h2>
         <h3 class="section-subheading text-muted">Amplia gama de servicios y diseños</h3>
-        <a class="btn btn-primary portfolio-link"  data-bs-toggle="modal" href="#agendar" style="margin-bottom: 10px">Agenda aqui</a>
+        <a class="btn btn-primary portfolio-link"  data-bs-toggle="modal" href="#" style="margin-bottom: 10px">Agenda aqui</a>
         @auth
-         @if(auth()->user()->name == 'Maykoll')
+         @if(auth()->user()->name == 'SBTG')
          <a class="btn btn-primary portfolio-link"  data-bs-toggle="modal" href="#crear" style="margin-bottom: 10px">Agrega un nuevo servicio</a>
          @endif   
         @endauth

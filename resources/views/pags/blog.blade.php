@@ -15,7 +15,7 @@
       <!--Section: Content-->
       @auth
       <h4 class="mb-5"><strong>Bienvenido {{ auth()->user()->name }}</strong></h4>
-      @if(auth()->user()->name == 'Maykoll')
+      @if(auth()->user()->name == 'SBTG')
         <!-- publicar -->
         <div class="portfolio-item" style="margin-bottom: 3%">
           <a class="portfolio-link" data-bs-toggle="modal" href="#publicar">

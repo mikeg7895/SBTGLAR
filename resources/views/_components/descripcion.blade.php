@@ -1,3 +1,9 @@
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
+
 <div class="portfolio-modal modal fade" id="{{ $portafolioModal }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -16,10 +22,11 @@
                                     {{ $precio }}
                                 </li>
                             </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-primary" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Cerrar ventana
                             </button>
+                            <button class="btn btn-primary">Agendar</button>
                         </div>
                     </div>
                 </div>
