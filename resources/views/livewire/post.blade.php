@@ -1,5 +1,5 @@
 <div>
-    <section class="mb-5">
+    <section class="mb-5" style="padding: 0px">
         <div class="card bg-light">
             <div class="card-body">
                 <!-- Comment form-->

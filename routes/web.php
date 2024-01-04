@@ -13,7 +13,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [InicioController::class, 'index'])->name('inicio');
-Route::post('/formulario' , [InicioController::class,'validar'])->name('validar');
 Route::post('/save-service', [InicioController::class, 'storeService'])->name('validar.service');
 
 

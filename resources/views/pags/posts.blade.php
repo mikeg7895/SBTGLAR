@@ -28,7 +28,7 @@
                     <div class="text-muted fst-italic mb-2">{{ $post->created_at }}</div>
                 </header>
                 <!-- Post content-->
-                <section class="mb-5">
+                <section class="mb-5" style="padding: 0px">
                     <p class="fs-5 mb-4">{!! html_entity_decode($post->descripcion) !!}</p>
                 </section>
             </article>

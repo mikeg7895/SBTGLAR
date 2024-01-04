@@ -18,11 +18,6 @@ class InicioController extends Controller
         return view("pags.index", compact("reseñas", "servicios"));
     }
 
-    public function validar(ContactoRequest $request){
-        Mail::to($request->email)->send(new ContactoMail($request->name));
-        return redirect()->route('inicio')->with('success','Mensaje enviado');
-    }
-
     public function storeService(ServiceRequest $request){
         $imageName = time().".".$request->imagen->extension();
         $request->imagen->storeAs("public/images", $imageName);

@@ -80,21 +80,23 @@
       </div>
       </div>
 
+      @if($publicaciones)
       <!-- Pagination -->
-      <nav class="my-4" aria-label="...">
-        <ul class="pagination pagination-circle justify-content-center">
-          <li class="page-item">
-            <a class="page-link {{ $pag==1 ? 'disabled' : '' }}" href="{{ route('blog', ['pag'=>$pag-1]) }}" tabindex="-1" aria-disabled="true"><<</a>
-          </li>
-          @for($i=1; $i<=$numero; $i++)
-            <li class="page-item {{ $i==$pag ? 'active' : '' }} "><a class="page-link" href="{{ route('blog', ['pag'=>$i]) }}">{{$i}} <span class="sr-only">(current)</span></a></li>
-          @endfor
-          <li class="page-item">
-            <a class="page-link {{ $pag==$numero ? 'disabled' : '' }}" href="{{ route('blog', ['pag'=>$pag+1]) }}">>>
-            </a>
-          </li>
-        </ul>
-      </nav>
+        <nav class="my-4" aria-label="...">
+          <ul class="pagination pagination-circle justify-content-center">
+            <li class="page-item">
+              <a class="page-link {{ $pag==1 ? 'disabled' : '' }}" href="{{ route('blog', ['pag'=>$pag-1]) }}" tabindex="-1" aria-disabled="true"><<</a>
+            </li>
+            @for($i=1; $i<=$numero; $i++)
+              <li class="page-item {{ $i==$pag ? 'active' : '' }} "><a class="page-link" href="{{ route('blog', ['pag'=>$i]) }}">{{$i}} <span class="sr-only">(current)</span></a></li>
+            @endfor
+            <li class="page-item">
+              <a class="page-link {{ $pag==$numero ? 'disabled' : '' }}" href="{{ route('blog', ['pag'=>$pag+1]) }}">>>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      @endif
     </div>
   </main>
 
